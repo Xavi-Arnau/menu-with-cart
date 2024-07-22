@@ -1,58 +1,28 @@
 import { CircleX, Trees } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import CartLine from "./CartLine";
 const Cart = ({ confirm }) => {
+  const { cartItems } = useSelector((state) => state.cart);
+  //console.log(cartItems);
   return (
     <div className="flex flex-col gap-2 p-8 bg-white rounded-xl mt-10">
-      <h3 className="text-2xl font-bold text-Red">Your Cart (7)</h3>
+      <h3 className="text-2xl font-bold text-Red">
+        Your Cart ({cartItems.length || 0})
+      </h3>
       <div className="flex flex-col gap-4">
-        {/** Item Line */}
-        <div className="flex flex-row justify-between">
-          <div>
-            <div className="text-small font-bold">Classic Tiramisu</div>
-            <div className="flex flex-row gap-4">
-              <div className="text-Red font-bold">4x</div>
-              <div className="text-Rose300 font-bold">@ $5.50</div>
-              <div className="text-Rose500 font-bold">5.50</div>
-            </div>
-          </div>
-          <button>
-            <CircleX />
-          </button>
-        </div>
-        {/** END Item Line */}
-        {/** Item Line */}
-        <div className="flex flex-row justify-between">
-          <div>
-            <div className="text-small font-bold">Classic Tiramisu</div>
-            <div className="flex flex-row gap-4">
-              <div className="text-Red font-bold">4x</div>
-              <div className="text-Rose300 font-bold">@ $5.50</div>
-              <div className="text-Rose500 font-bold">5.50</div>
-            </div>
-          </div>
-          <button>
-            <CircleX />
-          </button>
-        </div>
-        {/** END Item Line */}
-        {/** Item Line */}
-        <div className="flex flex-row justify-between">
-          <div>
-            <div className="text-small font-bold">Classic Tiramisu</div>
-            <div className="flex flex-row gap-4">
-              <div className="text-Red font-bold">4x</div>
-              <div className="text-Rose300 font-bold">@ $5.50</div>
-              <div className="text-Rose500 font-bold">5.50</div>
-            </div>
-          </div>
-          <button>
-            <CircleX />
-          </button>
-        </div>
-        {/** END Item Line */}
+        {cartItems.map((item) => (
+          <CartLine key={item.name} product={item} />
+        ))}
       </div>
       <div className="mt-10 flex flex-row justify-between">
         <div>Order Total</div>
-        <div className="font-bold text-xl">$50.50</div>
+        <div className="font-bold text-xl">
+          $
+          {cartItems.reduce(
+            (total, current) => total + current.price * current.quantity,
+            0
+          )}
+        </div>
       </div>
       <div>
         <div className="w-10/12 mx-auto py-2 px-4 bg-Rose50 text-center flex flex-row gap-4">
