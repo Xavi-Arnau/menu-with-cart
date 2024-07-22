@@ -23,7 +23,7 @@ const Item = ({ product }) => {
           className="object-cover rounded-xl"
         />
         {isAlreadyAdded(product) ? (
-          <div className="-mt-4 bg-Red text-white flex flex-row py-1 px-4 gap-6 rounded-2xl">
+          <div className="-mt-4 bg-Red text-white flex flex-row py-1 px-4 gap-6 rounded-2xl border-2 border-Red">
             <button onClick={() => dispatch(decrementQ(product))}>
               <Minus size={20} />
             </button>
