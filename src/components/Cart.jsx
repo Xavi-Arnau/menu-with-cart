@@ -1,5 +1,5 @@
-import { CircleX, Trees } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
+import { Trees } from "lucide-react";
+import { useSelector } from "react-redux";
 import CartLine from "./CartLine";
 const Cart = ({ confirm }) => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -25,18 +25,20 @@ const Cart = ({ confirm }) => {
         </div>
       </div>
       <div>
-        <div className="w-10/12 mx-auto py-2 px-4 bg-Rose50 text-center flex flex-row gap-4">
-          <Trees className="text-Green" /> This is a
+        <div className="md:w-10/12 md:mx-auto py-2 px-4 bg-Rose50 text-center flex flex-row gap-4">
+          <Trees size={22} className="text-Green" /> This is a
           <span className="font-bold">carbon-neutral</span>
           delivery
         </div>
       </div>
-      <button
-        onClick={confirm}
-        className="mt-8 bg-Red text-white py-2 px-4 w-full rounded-3xl active:bg-white active:text-Red"
-      >
-        Confirm Order
-      </button>
+      {cartItems && cartItems.length > 0 ? (
+        <button
+          onClick={confirm}
+          className="mt-8 bg-Red text-white py-2 px-4 w-full rounded-3xl active:bg-white active:text-Red"
+        >
+          Confirm Order
+        </button>
+      ) : null}
     </div>
   );
 };

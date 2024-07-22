@@ -16,11 +16,11 @@ function App() {
     <Provider store={store}>
       <div>
         <div className="bg-Rose50">
-          <div className="flex flex-row w-8/12 mx-auto">
-            <div className="w-3/5">
+          <div className="flex flex-col md:flex-row w-8/12 mx-auto">
+            <div className="md:w-3/5">
               <Menu />
             </div>
-            <div className="w-2/5">
+            <div className="md:w-2/5">
               <Cart confirm={() => setShowModal(true)} />
             </div>
           </div>

@@ -15,7 +15,7 @@ const Item = ({ product }) => {
   };
 
   return (
-    <div className="w-1/3 p-4 flex flex-col gap-2">
+    <div className="md:w-1/3 p-4 flex flex-col gap-2">
       <div className="relative flex flex-col items-center">
         <img
           src={product.image.desktop}
