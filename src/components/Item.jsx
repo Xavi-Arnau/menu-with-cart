@@ -24,11 +24,17 @@ const Item = ({ product }) => {
         />
         {isAlreadyAdded(product) ? (
           <div className="-mt-4 bg-Red text-white flex flex-row py-1 px-4 gap-6 rounded-2xl border-2 border-Red">
-            <button onClick={() => dispatch(decrementQ(product))}>
+            <button
+              aria-label="minus"
+              onClick={() => dispatch(decrementQ(product))}
+            >
               <Minus size={20} />
             </button>
-            <div>{getQty(product)}</div>
-            <button onClick={() => dispatch(incrementQ(product))}>
+            <div aria-label="quantity">{getQty(product)}</div>
+            <button
+              aria-label="plus"
+              onClick={() => dispatch(incrementQ(product))}
+            >
               <Plus size={20} />
             </button>
           </div>
