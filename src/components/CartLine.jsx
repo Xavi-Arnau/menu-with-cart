@@ -18,6 +18,7 @@ const CartLine = ({ product }) => {
         </div>
       </div>
       <button
+        aria-label="remove"
         onClick={() => {
           dispatch(removeFromCart(product));
         }}
