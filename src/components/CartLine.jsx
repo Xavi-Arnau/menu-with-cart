@@ -6,7 +6,7 @@ import { removeFromCart } from "../slices/cartSlice";
 const CartLine = ({ product }) => {
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between animate-in slide-in-from-right duration-500">
       <div>
         <div className="text-small font-bold">{product.name}</div>
         <div className="flex flex-row gap-4">

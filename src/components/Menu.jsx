@@ -12,8 +12,8 @@ const Menu = () => {
     <div>
       <h1 className="p-4 text-4xl font-bold">Desserts</h1>
       <div className="flex flex-row flex-wrap ">
-        {products.map((product) => (
-          <Item key={product.name} product={product} />
+        {products.map((product, index) => (
+          <Item key={product.name} product={product} index={index + 1} />
         ))}
       </div>
     </div>

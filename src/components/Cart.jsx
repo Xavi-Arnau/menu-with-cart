@@ -36,7 +36,8 @@ const Cart = ({ confirm }) => {
       {cartItems && cartItems.length > 0 ? (
         <button
           onClick={confirm}
-          className="mt-8 mb-8 bg-Red text-white py-2 px-4 w-full rounded-3xl active:bg-white active:text-Red"
+          className="mt-8 mb-8 bg-Red text-white py-2 px-4 w-full rounded-3xl active:bg-white active:text-Red 
+          animate-in zoom-in duration-500"
         >
           Confirm Order
         </button>

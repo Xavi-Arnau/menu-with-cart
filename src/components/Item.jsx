@@ -23,14 +23,19 @@ const Item = ({ product }) => {
           className="object-cover rounded-xl"
         />
         {isAlreadyAdded(product) ? (
-          <div className="-mt-4 bg-Red text-white flex flex-row py-1 px-4 gap-6 rounded-2xl border-2 border-Red">
+          <div
+            className="-mt-4 bg-Red text-white flex flex-row py-1 px-4 gap-6 rounded-2xl border-2 
+          border-Red animate-in zoom-in duration-500"
+          >
             <button
               aria-label="minus"
               onClick={() => dispatch(decrementQ(product))}
             >
               <Minus size={20} />
             </button>
-            <div aria-label="quantity">{getQty(product)}</div>
+            <div aria-label="quantity" className="w-4 text-center">
+              {getQty(product)}
+            </div>
             <button
               aria-label="plus"
               onClick={() => dispatch(incrementQ(product))}
