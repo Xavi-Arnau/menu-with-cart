@@ -28,5 +28,8 @@ describe("App", () => {
     cy.get(".mt-8").click();
 
     cy.get(".text-3xl").contains("Order Confirmed");
+
+    cy.get(".fixed > .bg-white > .w-full").click();
+    cy.get(".text-2xl").contains("Your Cart (0)");
   });
 });
