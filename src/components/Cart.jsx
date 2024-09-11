@@ -1,6 +1,7 @@
 import { Trees } from "lucide-react";
 import { useSelector } from "react-redux";
 import CartLine from "./CartLine";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const Cart = ({ confirm }) => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -10,11 +11,15 @@ const Cart = ({ confirm }) => {
       <h3 className="text-2xl font-bold text-Red">
         Your Cart ({cartItems.length || 0})
       </h3>
-      <div className="flex flex-col gap-4">
+
+      <TransitionGroup className="flex flex-col gap-4">
         {cartItems.map((item) => (
-          <CartLine key={item.name} product={item} />
+          <CSSTransition key={item.name} timeout={500} classNames="item-side">
+            <CartLine key={item.name} product={item} />
+          </CSSTransition>
         ))}
-      </div>
+      </TransitionGroup>
+
       <div className="mt-10 flex flex-row justify-between">
         <div>Order Total</div>
         <div className="font-bold text-xl">
